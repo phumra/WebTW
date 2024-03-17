@@ -17,33 +17,10 @@
           <v-card>
             <v-card-title class="bg-blue-grey">{{title}}</v-card-title>
             <v-card-text class="pa-6">
-              <!-- <form >
-                <div class="form-group">
-                  <label for="exampleInputID">Student ID:</label>
-                  <input type="text" class="form-control" id="exampleInputID" placeholder="Student ID">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputName">Student Name:</label>
-                  <input type="text" class="form-control" id="exampleInputName" placeholder="Student Name">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputName">subject:</label>
-                  <input type="text" class="form-control" id="exampleInputSubject" placeholder="subject">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputName">Date:</label>
-                  <input type="text" class="form-control" id="exampleInputDate" placeholder="date">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputName">Room:</label>
-                  <input type="text" class="form-control" id="exampleInputroom" placeholder="room">
-                </div>
-                <button type="submit" class="btn btn-primary" @click="savedata()">Save</button>
-              </form> -->
+              
                 <v-card-text class="pa-6">
-                    <v-text-field v-model="editstd.id" label="รหัส"></v-text-field>
-                    <v-text-field label="ชื่อ"></v-text-field>
-                    <v-text-field v-model="editstd.subject" label="วิชา"></v-text-field>
+                    <v-text-field v-model="editstd.id" label="รหัสวิชา"></v-text-field>
+                    <v-text-field v-model="editstd.subject" label="ชื่อวิชา"></v-text-field>
                     <v-text-field v-model="editstd.room" label="ห้อง"></v-text-field>
                     <v-text-field v-model="editstd.class_date" label="วันที่"></v-text-field>
                </v-card-text>
