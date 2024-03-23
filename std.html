@@ -31,7 +31,7 @@
                   <v-btn @click="google_logout()" v-if="user"> Logout</v-btn>  
                 </v-card-actions>    
                 <v-card-text class="pa-6">
-                    <v-text-field v-model="editstd.id" label="รหัสวิชา"></v-text-field>
+                    <v-text-field v-model="editstd.id" label="รหัส"></v-text-field>
                     <v-text-field v-model="editstd.subject" label="ชื่อวิชา"></v-text-field>
                     <v-text-field v-model="editstd.room" label="ห้อง"></v-text-field>
                     <v-text-field v-model="editstd.class_date" label="วันที่"></v-text-field>
@@ -44,7 +44,7 @@
      <v-card v-if="editmode">
         <v-card-text class="pa-6">
             <v-card-title class="bg-blue-grey">{{editmode}}</v-card-title>
-            คำตอบ
+            1+1
             <v-text-field v-model="" ></v-text-field>
        </v-card-text>
        <v-card-actions>
