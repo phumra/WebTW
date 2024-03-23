@@ -9,6 +9,12 @@
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+<style>
+  a{
+    text-decoration: none;
+    color: black;
+  }
+</style>
   </head>
   <body>
     <div id="app">
@@ -25,6 +31,7 @@
                           {{user.displayName}}<br />
                           {{user.email}}<br />
                           {{ustudent}}<br />
+                          <v-btn> <a href="./std.html">student</a></v-btn>
                        </div>
                    </template>
                    <v-btn @click="google_login()" v-if="!user"> Login</v-btn>
@@ -34,8 +41,6 @@
      </v-card>
      
           <div class="pa-6 text-center">{{footer}}</div>
-          <a href="./std.html">std</a> <br>
-          <a href="./teacher.html">tea</a>
         </v-container>        
       </v-app>
     </div>
