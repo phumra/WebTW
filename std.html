@@ -45,7 +45,7 @@
         <v-card-text class="pa-6">
             <v-card-title class="bg-blue-grey">{{editmode}}</v-card-title>
             1+1
-            <v-text-field v-model="" ></v-text-field>
+            <v-text-field v-model="editstd.answer" ></v-text-field>
        </v-card-text>
        <v-card-actions>
             <v-btn @click="savedata()">Save</v-btn>
@@ -80,6 +80,7 @@
                     footer: "ระบุ รหัส 653380109-0 ชื่อ ภูมิรพี เกษรไพบูลย์ สาขา IT",
                     students: [],
                     editstd : {},
+                    edittwo:{},
                     editmode : 0,
                     user: null, 
                     ustudent: null,
@@ -121,14 +122,17 @@
                 },
                     edit(std){
                     this.editstd = std;
-                    this.editmode = "edit";ฟ
+                    this.editmode = "edit";
+            },
+            editstdtwo(editstd){
+              this.edittwo = editstd;
             },
             savedata(){
             db.collection("checkin").doc(this.editstd.id).set(this.editstd);
                 },
         addData(){
                     this.editmode = "Work";
-                    this.editstd = {};
+                    this.edittwo = {};
                 },
         deleteData(std) {
                 if (confirm("ต้องการลบข้อมูล")) {
