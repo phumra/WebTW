@@ -56,7 +56,9 @@
                 </v-card-text>
                 <v-card-actions>
                     <v-btn @click="readData()">Read Data (get)</v-btn>
-                    <v-btn @click="addData()">เพิ่มนักศึกษา</v-btn>                
+                    <v-btn @click="addData()">เพิ่มนักศึกษา</v-btn>      
+                    <v-btn @click="addtwo()">คำถาม</v-btn>   
+                    <v-btn @click="readDatastd()">เช็คชื่อ</v-btn>       
                 </v-card-actions>
 
      </v-card>
@@ -70,6 +72,17 @@
             <v-btn @click="editmode=0">Cancel</v-btn>
        </v-card-actions>
      </v-card>
+
+    </v-card>
+    <v-card v-if="editmodetwo">
+           <v-text-field v-model="ediqu.id" label="ข้อ"></v-text-field>
+           <v-text-field v-model="ediqu.question" label="คำถาม"></v-text-field>
+      <v-card-actions>
+       <v-btn @click="saveq()">Save</v-btn>
+           <v-btn @click="editmodetwo=0">Cancel</v-btn>
+      </v-card-actions>
+    </v-card>
+
      <v-card-text class="pa-6">
       <v-card-title class="bg-blue-grey">เช็คคำตอบ</v-card-title>
       <table width="100%">
@@ -84,7 +97,7 @@
         <tbody>
           <tr v-for="(s) in checkin">
             <td>{{s.id}}</td>
-            <td>{{s.name}}</td>
+            <td>{{s.answer}}</td>
             <td>{{s.room}}</td>
             <td>{{s.class_date}}</td>
           </tr>
@@ -119,7 +132,9 @@
                     students: [],
                     checkin: [],
                     editstd : {},
+                    ediqu: {},
                     editmode : 0,
+                    editmodetwo: 0,
                     user: null, 
                     ustudent: null,
             };
@@ -176,12 +191,22 @@
                     this.editstd = std;
                     this.editmode = "edit";
             },
+            edittwo(qu){
+                    this.ediqu = qu;
+                    this.editmodetwo = "edit";
+            },
             savedata(){
             db.collection("students").doc(this.editstd.id).set(this.editstd);
                 },
+            saveq(){
+                db.collection("quiz").doc(this.ediqu.id).set(this.ediqu);
+              },
         addData(){
                     this.editmode = "เช็คคำตอบ";
                     this.editstd = {};
+                },
+        addtwo(){
+                  this.editmodetwo = "คำถาม";
                 },
         deleteData(std) {
                 if (confirm("ต้องการลบข้อมูล")) {
@@ -197,6 +222,17 @@
                     stdlist.push({ id: doc.id, ...doc.data() });
                     });
                     this.students = stdlist;
+                });
+            },
+            readDatastd() {
+                db.collection("checkin")
+                .get()
+                .then((querySnapshot) => {
+                    var stdliststde = [];
+                    querySnapshot.forEach((doc) => {
+                    stdliststde.push({ id: doc.id, ...doc.data() });
+                    });
+                    this.checkin = stdliststde;
                 });
             },
           autoRead() {
