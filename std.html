@@ -31,10 +31,10 @@
                   <v-btn @click="google_logout()" v-if="user"> Logout</v-btn>  
                 </v-card-actions>    
                 <v-card-text class="pa-6">
-                    <v-text-field v-model="editstd.id" label="รหัส"></v-text-field>
+                    <v-text-field v-model="editstd.id" label="รหัสห้อง"></v-text-field>
                     <v-text-field v-model="editstd.subject" label="ชื่อวิชา"></v-text-field>
                     <v-text-field v-model="editstd.room" label="ห้อง"></v-text-field>
-                    <v-text-field v-model="editstd.class_date" label="วันที่"></v-text-field>
+                    <v-text-field v-model="editstd.class_date" type="datetime-local" label="เวลา"></v-text-field>
                 </v-card-text>
                 <v-card-actions>
                     <v-btn @click="savedata()">Save</v-btn>
