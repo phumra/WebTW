@@ -77,6 +77,7 @@
     <v-card v-if="editmodetwo">
            <v-text-field v-model="ediqu.id" label="ข้อ"></v-text-field>
            <v-text-field v-model="ediqu.question" label="คำถาม"></v-text-field>
+           <v-text-field v-model="ediqu.answer" label="คำตอบ"></v-text-field>
       <v-card-actions>
        <v-btn @click="saveq()">Save</v-btn>
            <v-btn @click="editmodetwo=0">Cancel</v-btn>
@@ -95,11 +96,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(s) in checkin">
-            <td>{{s.id}}</td>
-            <td>{{s.answer}}</td>
-            <td>{{s.room}}</td>
-            <td>{{s.class_date}}</td>
+          <tr v-for="(c) in checkin">
+            <td>{{c.id}}</td>
+            <td>{{c.answer}}</td>
+            <td>{{c.room}}</td>
+            <td>{{c.class_date}}</td>
           </tr>
         </tbody>
       </table>
